@@ -21,6 +21,7 @@ function Appbar(){
           <TextField
             id="outlined-basic"
             variant="outlined"
+            placeholder="Search"
             sx={{width:'370px',  '& .MuiOutlinedInput-root': {
                 height: '40px',backgroundColor:'#F2F4F6',marginRight:'100px'
               },
