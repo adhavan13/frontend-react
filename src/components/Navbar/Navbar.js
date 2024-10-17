@@ -7,8 +7,11 @@ import hourglass from '../../assets/hourglass.png';
 import pop from '../../assets/pop.png';
 import chat from '../../assets/chat.png';
 import Set from './Settings';
+import {useState} from 'react';
+import Config from './Config';
 
 function Sidebar(){
+  const [menu,setmenu]=useState(false);
 return (
 <Box sx={{
     backgroundColor:'#0C084C',
@@ -20,9 +23,13 @@ return (
     paddingLeft:'3px',
     paddingRight:'3px',
     boxSizing:'border-box',
-    paddingBottom:'12px'
+    paddingBottom:'12px',
+    margin:0,
+    position:'absolute',
+    top:0,
+    left:0
 }}>
-  <Set/>
+
      <Avatar sx={{ bgcolor: '#0C084C', width: 46, height: 46, marginBottom: '10px'}}>
         <LogoDev sx={{ fontSize: 32 }} />
       </Avatar>
@@ -62,7 +69,7 @@ return (
         </Avatar>
         <Typography sx={{ fontSize: '10px', color: 'white' }}>Chat</Typography>
       </Stack>
-      <Box sx={{width:'30px',paddingTop:'15.5px',borderTop:'1px dashed #FFFFFF3D',marginTop:'50px',paddingBottom:0}}>
+      <Box onClick={()=>setmenu((prev)=>!prev)} sx={{width:'30px',paddingTop:'15.5px',borderTop:'1px dashed #FFFFFF3D',marginTop:'68px',paddingBottom:0}}>
       <Stack alignItems="center" spacing={0.5}  sx={{cursor:'pointer'}}>
         <Avatar sx={{ bgcolor: '#FFFFFF29', width: 35, height: 35 ,borderRadius:'12px','&:hover':{bgcolor:'#00B7A8'}}}>
         <SettingsOutlined sx={{width:'20px',height:'20px'}} />
@@ -70,6 +77,7 @@ return (
         <Typography sx={{ fontSize: '10px', color: 'white' }}>Settings</Typography>
       </Stack>
       </Box>
+      {menu  && <Set  sx={{ transition: 'opacity 0.3s ease-out' }}/>}
 
 </Box>
 
